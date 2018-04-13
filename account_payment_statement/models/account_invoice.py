@@ -13,7 +13,7 @@ class AccountPaymentInherit(models.Model):
     _inherit = "account.payment"
 
     statement_id = fields.Many2one(
-        'account.bank.statement', string='Bank Statement', domain=[('journal_id', '=', 'journal_id.id')]
+        'account.bank.statement', string='Bank Statement'
     )
 
     @api.multi
@@ -43,7 +43,7 @@ class AccountRegisterPaymentsInherit(models.TransientModel):
     _inherit = "account.register.payments"
 
     statement_id = fields.Many2one(
-        'account.bank.statement', string='Bank Statement', domain=[('journal_id.id', '=', 'journal_id.id')]
+        'account.bank.statement', string='Bank Statement'
     )
 
     @api.multi
