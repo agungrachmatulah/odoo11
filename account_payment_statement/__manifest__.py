@@ -12,6 +12,7 @@
     'summary': 'Adding Statement for Payment',
     'author': 'Agung Rachmatullah',
     'website': 'https://portcities.net/',
+    'images': ['images/transaction.png'],
     'depends': [
         'account'
     ],
