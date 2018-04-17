@@ -25,18 +25,19 @@ class AccountPaymentInherit(models.Model):
         res = super(AccountPaymentInherit, self).post()
         for rec in self:
             if rec.statement_id:
-                amount = 0 - rec.amount
-            else:
-                amount = rec.amount
-            vals = {
-                'statement_id': rec.statement_id.id,
-                'date': rec.payment_date,
-                'name': '-',
-                'partner_id': rec.partner_id.id,
-                'ref': rec.name,
-                'amount': amount
-            }
-            self.env['account.bank.statement.line'].create(vals)
+                if rec.partner_type == 'supplier':
+                    amount = 0 - rec.amount
+                else:
+                    amount = rec.amount
+                vals = {
+                    'statement_id': rec.statement_id.id,
+                    'date': rec.payment_date,
+                    'name': '-',
+                    'partner_id': rec.partner_id.id,
+                    'ref': rec.name,
+                    'amount': amount
+                }
+                self.env['account.bank.statement.line'].create(vals)
         return res
 
 class AccountRegisterPaymentsInherit(models.TransientModel):

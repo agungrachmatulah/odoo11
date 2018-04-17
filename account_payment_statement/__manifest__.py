@@ -2,8 +2,6 @@
 #
 #    Copyright (C) 2014-2018 Port Cities Indonesia (http://www.portcities.net)
 #    @author Agung Rachmatullah <agung@portcities.net>
-#
-#
 
 {
     'name': 'Statement Payment',
